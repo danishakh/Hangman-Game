@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Hangman</title>
+	
+	<!-- jQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Reset CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+	<!-- My CSS file -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+	<!-- Slate Bootswatch Theme -->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|Permanent+Marker" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+	
+</head>
+<body>
+
+	<audio id="ListenLive" controls autoplay>
+		<source src="assets/audio/sweet-disposition.mp3" type="audio/mpeg">
+		<source src="assets/audio/intro-the-xx.mp3" type="audio/mpeg">
+	</audio>
+
+	<div class="wrapper">
+		<div id="header-wrapper" class="header-container container-fluid col-lg-6 col-lg-offset-3 text-center">
+			<p class="author">Danish Akhtar's</p>
+			<h1 class="title">HANGMAN</h1>
+		</div>
+		
+		<div class="row">
+			<div class=" col-lg-offset-2 col-lg-8">
+				<div class="info-wrapper panel panel-info">
+					<div class="panel-body text-center">
+						<p>This is a classic hangman game where you get a specific number of chances to guess the word(s) correctly. You will lose a chance to guess only for every <strong>incorrectly</strong> guessed letter.</p>
+					
+						<p>There are a few different categories that you can choose from, once you have selected your category, the page will automatically update the guess word. To guess a letter, just press that letter key on your keyboard!</p>
+
+						<p>Should be easy enough, right? Have fun!</p>
+					</div>
+
+					<div>
+						<p id="msgs"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+
+			<div class="col-lg-offset-2 col-lg-5">
+				<div class="current-word-panel panel panel-info">
+					<div class="panel-heading">
+						<h5 class="panel-title text-center">Current Word</h5>
+					</div>
+					<div class="panel-body">
+						<h3 id="current-word" class="text-center"></h3>
+					</div>
+				
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<div class="stats-list-group">
+					<ul class="list-group">
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+							Guesses Remaining
+							<span id="badge-guess-rem" class="badge badge-info badge-pill">14</span>
+						</li>
+
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+							Wins
+							<span id="badge-wins" class="badge badge-info badge-pill">3</span>
+						</li>
+
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+							Accuracy
+							<span id="badge-accuracy" class="badge badge-info badge-pill">%</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-offset-2 col-lg-5">
+				<div class="letters-guessed-panel panel panel-info">
+					<div class="panel-heading">
+						<h5 class="panel-title text-center">Letters Guessed</h5>
+					</div>
+					<div class="panel-body">
+						<h3 id="wrongGuessLetters" class="text-center"></h3>
+					</div>	
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<ul class="list-group list-group-categories">
+					<li><a href="#" class="list-group-item item-categories item-brands">Brands</a></li>
+					<li><a href="#" class="list-group-item item-categories item-cities ">Cities</a></li>
+					<li><a href="#" class="list-group-item item-categories item-movies">Movies</a></li>
+					<li><a href="#" class="list-group-item item-categories item-sports">Sports Celebrities</a></li>
+				</ul>
+			</div>
+			
+		</div>	
+	</div>
+
+	<div id="footer">
+		<div id="winAlert" class="alert alert-success alert-dismissable">
+			<h5 id="win-alert-text" class="text-center">Congratulations! You won this round!</h5>
+		</div>
+		<div id="lossAlert" class="alert alert-danger alert-dismissable">
+			<h5 id="lose-alert-text" class="text-center">Oh no! You are out of guesses! You Lost! :(</h5>
+		</div>
+	</div>
+
+<!-- My Game JS -->
+	<script src="assets/js/game.js" type="text/javascript"></script>
+
+</body>
+</html>

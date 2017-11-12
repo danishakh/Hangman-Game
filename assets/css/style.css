@@ -1,0 +1,67 @@
+#headerImage {
+	width: 500px;
+	height: 200px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.info-wrapper {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.current-word-panel {
+	margin-left: 10%;
+}
+
+.letters-guessed-panel {
+	margin-left: 10%;
+}
+
+.list-group {
+	width: 98%;
+}
+
+.list-group-categories {
+	margin-left: 1%;
+}
+
+
+#footer {
+	margin-bottom: 0;
+}
+
+#winAlert {
+	display: none;
+}
+
+.list-group-categories {
+	overflow-y: scroll;
+	height: 135px;
+}
+
+.list-group-item, #badge-wins, #badge-guess-rem, #badge-accuracy {
+	font-size: 20px;
+}
+
+.panel-body, .panel-heading, .list-group-item {
+	font-family: 'Permanent Marker', cursive;
+	font-size: 20px;
+
+}
+
+.title {
+	font-size: 100px;
+	font-family: 'Permanent Marker', cursive;
+
+}
+
+.author {
+	margin: 0;
+	width: 170px;
+	margin-bottom: -7%;
+	margin-left: 5%;
+	font-family: 'Great Vibes', cursive;
+	font-size: 20px;
+}
