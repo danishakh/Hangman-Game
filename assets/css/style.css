@@ -24,7 +24,7 @@
 }
 
 .list-group-categories {
-	margin-left: 1%;
+	margin-left: 0;
 }
 
 
@@ -54,7 +54,7 @@
 .title {
 	font-size: 100px;
 	font-family: 'Permanent Marker', cursive;
-	margin-top: -5%;
+	margin-top: -3%;
 
 }
 
