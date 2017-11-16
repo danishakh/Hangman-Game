@@ -44,43 +44,11 @@ var guessesAvailable = 10;
 var correctGuessCounter = 0;
 
 
-function reset() {
-
-	var selectedCategory = categories[Math.floor(Math.random() * categories.length)];
-	console.log("selected category: " + selectedCategory);
-	// Select a word randomly
-	chosenWord = brands[Math.floor(Math.random() * brands.length)];
-
-	// Split the chosen word into individual letters and puts them in an array
-	lettersInWord = chosenWord.split('');
-
-	// Get number of letters
-	for(var i = 0; i < lettersInWord.length; i++) {
-		if (lettersInWord[i] !== " "){
-			numLetters++;
-		}
-	}
-
-	// Reset counters
-	guessesAvailable = 10;
-	letterGuessed = 0;
-	correctGuessCounter = 0;
-	wrongLetters = [];
-	correctLetters = [];
-	letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];	
-	
-	myRound = false;
-	startGame();
-}
-
-
-
+// Start new round
 function startGame() {
 
 	// Container for selecting category so that we scroll to the selected item
 	var container = $(".list-group-categories");
-
-	console.log("Selected Category: " + selectedCategory);
 
 	// Selected Category
 	if (selectedCategory == "brands") {
@@ -95,7 +63,6 @@ function startGame() {
 		selectedCategory = cities
 
 		var scrollTo = $(".item-cities");
-
 		$(".item-cities").addClass("active");
 		$(".list-group-categories").animate({ scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()});
 
@@ -105,7 +72,6 @@ function startGame() {
 		selectedCategory = sportCelebs
 
 		var scrollTo = $(".item-sports");
-
 		$(".item-sports").addClass("active");
 		$(".list-group-categories").animate({ scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()});
 
@@ -114,11 +80,11 @@ function startGame() {
 		selectedCategory = movies
 
 		var scrollTo = $(".item-movies");
-
 		$(".item-movies").addClass("active");
 		$(".list-group-categories").animate({ scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()});
 	}
 	
+
 	// Select a word randomly
 	chosenWord = selectedCategory[Math.floor(Math.random() * selectedCategory.length)];
 
@@ -128,7 +94,7 @@ function startGame() {
 		if (lettersInWord[v] === " ") {
 			// saved " " index
 			spaceIndex = v;
-			lettersInWord.splice(v,1);
+			lettersInWord.splice(v,1);			//lol hack
 		}
 	}
 
@@ -163,6 +129,7 @@ function startGame() {
 
 
 	// Console Log checks
+	console.log("Selected Category: " + selectedCategory);
 	console.log("Chosen Word = " + chosenWord);
 	console.log("Letters in Word = " + lettersInWord);
 	console.log("Num of Letters = " + numLetters);
@@ -174,6 +141,12 @@ function startGame() {
 	$("#lossAlert").hide();
 
 }	
+
+// Reset Game and Settings
+function reset() {
+	myRound = false;
+	startGame();
+}
 
 
 // Check user guess with current word
@@ -233,6 +206,7 @@ function checkGuess(userInput) {
 	}
 }
 
+// Check the state of the game - win/lose conditions
 function gameResult() {
 
 	// When correctGuessCounter = number of letters in current word, you win
@@ -267,7 +241,8 @@ function gameResult() {
 	}
 }
 
-function calcAccuracy(number1, number2){
+// Calculate guess accuracy
+function calcAccuracy(number1, number2) {
 	var result = (number1/number2) * 100;
 	return result.toFixed(2);
 }
@@ -336,6 +311,3 @@ $(".item-movies").on("click", function() {
 // 3b. If it is not, then reduce the "numberOfGuesses" counter, check if it has hit 0 which would imply game is over and continue
 
 // 4. When win/lose, reset the game back to start state and start a new round with a different word
-
-
-// Variables for the round
