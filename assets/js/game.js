@@ -6,7 +6,7 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 var movies = ["tropic thunder", "logan", "baby driver", "spiderman", "terminator", "mortal kombat", "taken", "blow", "blade"];
 var cities = ["seoul", "frankfurt", "dubai", "manchester", "barcelona", "london", "florence", "melbourne", "boston", "chicago", "dallas", "taipei"];
 var sportCelebs = ["cristiano ronaldo", "kobe bryant", "tiger woods", "rory mcilroy", "muhammad ali", "manny pacquiao", "sachin tendulkar"];
-var brands = ["armani", "burberry", "dior", "coach", "levis", "hollister", "hermes"];
+var brands = ["armani", "burberry", "dior", "coach", "levis", "hollister", "hermes", "chanel", "prada", "nike", "banana republic"];
 
 var categories = ["brands", "movies", "cities", "sportCelebs"];
 
@@ -90,6 +90,7 @@ function startGame() {
 
 	// Split the chosen word into individual letters - stripping away spaces and saving its index
 	lettersInWord = chosenWord.split('');
+	console.log(lettersInWord);
 	for (var v = 0; v < lettersInWord.length; v++) {
 		if (lettersInWord[v] === " ") {
 			// saved " " index
